@@ -56,7 +56,7 @@ export default function OpeningScreen({ onComplete }: OpeningScreenProps) {
               onEnded={handleComplete}
               onError={() => setVideoError(true)}
             >
-              <source src="/video/video_202607132238.mp4" type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}video/video_202607132238.mp4`} type="video/mp4" />
             </video>
           )}
 
