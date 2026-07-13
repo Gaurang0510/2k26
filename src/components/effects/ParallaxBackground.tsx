@@ -12,14 +12,18 @@ export default function ParallaxBackground() {
       {/* The Parallax Image */}
       <motion.div
         className="absolute inset-0 w-full h-[115%]" // Make it taller so it has room to translate up
-        style={{
-          y,
-          backgroundImage: 'url(/images/hq_background.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+        style={{ y }}
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/video/background.mp4" type="video/mp4" />
+        </video>
+      </motion.div>
       
       {/* Dark overlays to blend with the cyber theme and ensure text readability */}
       {/* A heavy base dimming */}
