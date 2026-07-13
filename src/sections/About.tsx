@@ -30,7 +30,6 @@ function AnimatedCounter({ value, prefix = '', suffix = '' }: { value: number; p
           animate={{ opacity: 1 }}
           onAnimationComplete={() => {
             // Animate count from 0 to value
-            const controls = { value: 0 }
             const duration = 2000
             const startTime = performance.now()
 

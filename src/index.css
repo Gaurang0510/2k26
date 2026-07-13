@@ -1,12 +1,12 @@
+/* ─── Google Fonts ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
    UPSURGE 2026 — Global Design System
    Theme: Cyber Investigation HQ / Digital Forensics
    ═══════════════════════════════════════════════════════════════ */
-
-/* ─── Google Fonts ────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
 /* ─── Tailwind v4 Theme ──────────────────────────────────────── */
 @theme {
