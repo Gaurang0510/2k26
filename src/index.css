@@ -1,0 +1,217 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   UPSURGE 2026 — Global Design System
+   Theme: Cyber Investigation HQ / Digital Forensics
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Google Fonts ────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+/* ─── Tailwind v4 Theme ──────────────────────────────────────── */
+@theme {
+  /* Colors */
+  --color-bg-primary: #050505;
+  --color-bg-secondary: #0A0F17;
+  --color-bg-surface: #0d1515;
+  --color-bg-card: rgba(10, 15, 23, 0.7);
+  
+  --color-cyan: #00f2ff;
+  --color-cyan-dim: #00dbe7;
+  --color-cyan-light: #74f5ff;
+  --color-cyan-dark: #006a71;
+  --color-blue: #0266ff;
+  --color-blue-light: #b3c5ff;
+  --color-purple: #8b5cf6;
+  --color-red: #ff4444;
+  --color-red-dim: #ffb4ab;
+  
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #dce4e4;
+  --color-text-muted: #b9cacb;
+  --color-text-dim: #849495;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-cyan: rgba(0, 242, 255, 0.2);
+  --color-border-hover: rgba(0, 242, 255, 0.3);
+
+  /* Typography */
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --font-orbitron: 'Orbitron', sans-serif;
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out 2s infinite;
+  --animate-float-reverse: float-reverse 7s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-in-left: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-slide-in-right: slide-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-border-flow: border-flow 3s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes float-reverse {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(12px); }
+  }
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(0,242,255,0.5)); }
+    50% { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(0,242,255,0.2)); }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-in-right {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 242, 255, 0.1); }
+    50% { box-shadow: 0 0 40px rgba(0, 242, 255, 0.2); }
+  }
+  @keyframes border-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-secondary);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+::selection {
+  background-color: rgba(0, 242, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 255, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 255, 0.5);
+}
+
+/* ─── Glass Panel ─────────────────────────────────────────────── */
+.glass-panel {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+}
+
+.glass-panel-hover:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.08);
+}
+
+/* ─── HUD Border ──────────────────────────────────────────────── */
+.hud-border {
+  border: 1px solid var(--color-border-cyan);
+}
+
+/* ─── Grid Background ─────────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+/* ─── Scanline Overlay ────────────────────────────────────────── */
+.scanline-overlay {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* ─── Section Divider ─────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 242, 255, 0.2) 20%,
+    rgba(0, 242, 255, 0.4) 50%,
+    rgba(0, 242, 255, 0.2) 80%,
+    transparent 100%
+  );
+}
+
+/* ─── Animated Gradient Text ──────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #00f2ff 0%, #0266ff 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow Effects ────────────────────────────────────────────── */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.15), 0 0 60px rgba(0, 242, 255, 0.05);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(0, 242, 255, 0.5), 0 0 40px rgba(0, 242, 255, 0.2);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+}
+
+/* ─── Cursor Hidden (for custom cursor) ───────────────────────── */
+@media (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
+  }
+}
